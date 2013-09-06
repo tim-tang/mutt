@@ -1,0 +1,97 @@
+# A basic .muttrc for use with Gmail
+
+# Change the following six lines to match your Gmail account details
+set imap_user = "tang.jilong@gmail.com"
+set imap_pass = "*******"    #need to modify
+set smtp_url = "smtp://tang.jilong@smtp.gmail.com:587/"
+set smtp_pass = "*******"    #need to modify
+set from = "tang.jilong@gmail.com"
+set realname = "Tim.Tang"
+
+#Stop asking if I want to move read messages to mbox
+set move=no
+
+# COMPOSING
+set fast_reply
+set edit_headers
+set askcc
+set reverse_name
+set reverse_alias
+set editor="vim"
+# set metoo
+set askbcc
+
+# Basic config, you can leave this as is
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set imap_check_subscribed
+set hostname = gmail.com
+set mail_check = 60
+set timeout = 300
+set imap_keepalive = 300
+set postponed = "+[GMail]/Drafts"
+set record = "+[GMail]/Sent Mail"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set mailcap_path = ~/.mutt/mailcap
+set move = no
+set delete
+set beep_new
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop 
+
+# APPEARANCE
+set date_format = "%a %d %b" # formats as strftime
+set index_format="[%Z] %-20.20F (%M) %s %* %D" # %* justifies right w priority
+# COLORSCHEME
+source $HOME/.mutt/mutt-colors-solarized-dark-16.muttrc
+
+# INDEX KEY BINDINGS
+bind index gg first-entry
+bind index G  last-entry
+bind index R group-reply
+
+# PAGER
+bind pager k previous-line
+bind pager j next-line
+bind pager gg top
+bind pager G bottom
+bind pager R group-reply
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
+# attachment viewing
+bind attach <return> view-mailcap
+
+# THREADING
+# threading like gmail
+set sort=threads
+set sort_aux=reverse-last-date-received
+set uncollapse_jump
+unset collapse_unread
+# auto collapse threads
+folder-hook . "exec collapse-all"
+
+# Gmail-style keyboard shortcuts
+macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+#Headers on mail that I send.
+#my_hdr From: "Tim.Tang" <tang.jilong@gmail.com>
+#my_hdr Reply-To: tang.jilong@gmail.com
+#my_hdr Bcc: tang.jilong@gmail.com

@@ -1,0 +1,4 @@
+.DS_Store
+
+mutt/cache/bodies/*
+mutt/cache/headers/*
