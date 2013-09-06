@@ -32,8 +32,8 @@ set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
 set hostname = gmail.com
-set mail_check = 60
-set timeout = 300
+set mail_check = 5 
+set timeout = 60 
 set imap_keepalive = 300
 set postponed = "+[GMail]/Drafts"
 set record = "+[GMail]/Sent Mail"
@@ -45,7 +45,6 @@ set move = no
 set delete
 set beep_new
 set include
-set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
 set auto_tag = yes
 set signature=~/.mutt/signature
@@ -97,9 +96,15 @@ macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
 macro pager lb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 #Headers on mail that I send.
 #my_hdr From: "Tim.Tang" <tang.jilong@gmail.com>
 #my_hdr Reply-To: tang.jilong@gmail.com
-#my_hdr Bcc: tang.jilong@gmail.com
+#my_hdr From: "Tim.Tang" <tang.jilong@gmail.com>
+
+# Headers for Xplusz mail
+my_hdr Reply-To: Tim.Tang@gmail.com
+my_hdr Bcc: Tim.Tang@gmail.com
+my_hdr Bcc: Tim.Tang@gmail.com
