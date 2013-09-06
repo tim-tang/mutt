@@ -20,16 +20,17 @@ application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.ap
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/view_attachment.sh %s docx; nametemplate=%s.docx
 
 # Images
-image/jpg; ~/.mutt/view_attachment.sh %s jpg feh
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg feh
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg feh
-image/png; ~/.mutt/view_attachment.sh %s png feh
-image/gif; ~/.mutt/view_attachment.sh %s gif feh
+image/jpg; ~/.mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+image/png; ~/.mutt/view_attachment.sh %s png
+image/gif; ~/.mutt/view_attachment.sh %s gif
 
 # PDF
 # application/pdf; ~/.mutt/view_attachment.sh %s pdf zathura
-application/pdf;                zathura %s; test=sh -c 'test $DISPLAY'
-application/pdf;                pdftotext %s -; copiousoutput
+#application/pdf;                zathura %s; test=sh -c 'test $DISPLAY'
+#application/pdf;                pdftotext %s -; copiousoutput
+application/pdf; ~/.mutt/view_attachment.sh %s pdf
 
 # HTML
 # text/html; ~/.mutt/view_attachment.sh %s html; nametemplate=%s.html

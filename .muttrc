@@ -8,6 +8,12 @@ set smtp_pass = "*******"    #need to modify
 set from = "tang.jilong@gmail.com"
 set realname = "Tim.Tang"
 
+# Mail account for Xplusz
+set imap_user = "tim.tang@xplusz.com"
+set imap_pass = "*******"
+set smtp_url="smtp://tim.tang@xplusz.com:******@smtp.gmail.com"
+set from = "tim.tang@xplusz.com"
+
 #Stop asking if I want to move read messages to mbox
 set move=no
 
